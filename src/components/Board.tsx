@@ -1,6 +1,6 @@
 import BoardPiece from "@/components/BoardPiece";
 import type { Board as BoardType } from "@/types/Board";
-import { css } from "@styled-system/css";
+import { Box, HStack } from "@kuma-ui/core";
 
 type Props = {
   board: BoardType;
@@ -8,14 +8,14 @@ type Props = {
 
 export default function Board({ board }: Props) {
   return (
-    <div>
+    <Box>
       {board.pieces.map((row, y) => (
-        <div key={y} className={css({ display: "flex" })}>
+        <HStack key={y}>
           {row.map((piece, x) => (
             <BoardPiece key={x} piece={piece} isCut={x === 3} />
           ))}
-        </div>
+        </HStack>
       ))}
-    </div>
+    </Box>
   );
 }

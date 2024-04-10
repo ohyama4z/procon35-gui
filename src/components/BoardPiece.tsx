@@ -1,5 +1,5 @@
 import type { Piece } from "@/types/Board";
-import { css } from "@styled-system/css";
+import { HStack } from "@kuma-ui/core";
 
 type Props = {
   piece: Piece;
@@ -8,20 +8,17 @@ type Props = {
 
 export default function BoardPiece({ piece, isCut }: Props) {
   return (
-    <div
-      className={css({
-        display: "flex",
-        width: "8",
-        height: "8",
-        backgroundColor: isCut ? "red.200" : "neutral.50",
-        borderWidth: isCut ? "2" : "0.5",
-        borderStyle: "solid",
-        borderColor: isCut ? "red.700" : "neutral.800",
-        alignItems: "center",
-        justifyContent: "center",
-      })}
+    <HStack
+      width="2rem"
+      height="2rem"
+      backgroundColor={isCut ? "#bfdbfe" : "#f5f5f4"}
+      borderWidth={isCut ? "2px" : "1px"}
+      borderStyle="solid"
+      borderColor={isCut ? "#2563eb" : "#292524"}
+      alignItems="center"
+      justifyContent="center"
     >
       {piece}
-    </div>
+    </HStack>
   );
 }

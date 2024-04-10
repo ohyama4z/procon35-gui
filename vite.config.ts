@@ -1,4 +1,5 @@
 import path from "node:path";
+import KumaUI from "@kuma-ui/vite";
 import react from "@vitejs/plugin-react-swc";
 import { defineConfig } from "vite";
 
@@ -6,9 +7,8 @@ import { defineConfig } from "vite";
 export default defineConfig({
   resolve: {
     alias: {
-      "@styled-system": path.resolve(__dirname, "./styled-system"),
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  plugins: [react()],
+  plugins: [react(), KumaUI()],
 });

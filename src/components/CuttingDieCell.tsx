@@ -1,5 +1,5 @@
 import type { Cell } from "@/types/CuttingDie";
-import { css } from "@styled-system/css";
+import { HStack } from "@kuma-ui/core";
 
 type Props = {
   cell: Cell;
@@ -7,20 +7,17 @@ type Props = {
 
 export default function CuttingDieCell({ cell }: Props) {
   return (
-    <div
-      className={css({
-        display: "flex",
-        width: "8",
-        height: "8",
-        backgroundColor: cell === 1 ? "red.400" : "neutral.50",
-        borderWidth: "0.5",
-        borderStyle: "solid",
-        borderColor: "neutral.800",
-        alignItems: "center",
-        justifyContent: "center",
-      })}
+    <HStack
+      width="2rem"
+      height="2rem"
+      backgroundColor={cell === 1 ? "#bfdbfe" : "#f5f5f4"}
+      borderWidth="1px"
+      borderStyle="solid"
+      borderColor="#292524"
+      alignItems="center"
+      justifyContent="center"
     >
       {cell}
-    </div>
+    </HStack>
   );
 }

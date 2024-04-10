@@ -2,7 +2,7 @@ import Board from "@/components/Board";
 import CuttingDie from "@/components/CuttingDie";
 import type { Board as BoardType } from "@/types/Board";
 import type { CuttingDie as CuttingDieType } from "@/types/CuttingDie";
-import { css } from "@styled-system/css";
+import { Box, HStack, Spacer } from "@kuma-ui/core";
 
 const board: BoardType = {
   width: 10,
@@ -34,26 +34,20 @@ const cuttingDies: CuttingDieType[] = [
 export default function App() {
   return (
     <>
-      <div className={css({ display: "flex" })}>
-        <div className={css({ flexGrow: "1" })}>
-          <div className={css({ padding: "4" })} />
-          <div
-            className={css({
-              display: "flex",
-              justifyContent: "center",
-              gap: "8",
-            })}
-          >
+      <HStack>
+        <Box flexGrow={1}>
+          <Spacer size="2rem" />
+          <HStack justifyContent="center" gap="2rem">
             {cuttingDies.map((cuttingDie, index) => (
               <CuttingDie key={index} cuttingDie={cuttingDie} />
             ))}
-          </div>
-          <div className={css({ padding: "4" })} />
-          <div className={css({ display: "flex", justifyContent: "center" })}>
+          </HStack>
+          <Spacer size="2rem" />
+          <HStack justifyContent="center">
             <Board board={board} />
-          </div>
-        </div>
-      </div>
+          </HStack>
+        </Box>
+      </HStack>
     </>
   );
 }

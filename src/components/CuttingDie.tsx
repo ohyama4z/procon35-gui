@@ -1,6 +1,6 @@
+import CuttingDieCell from "@/components/CuttingDieCell";
 import type { CuttingDie as CuttingDieType } from "@/types/CuttingDie";
-import { css } from "@styled-system/css";
-import CuttingDieCell from "./CuttingDieCell";
+import { Box, HStack } from "@kuma-ui/core";
 
 type Props = {
   cuttingDie: CuttingDieType;
@@ -8,14 +8,14 @@ type Props = {
 
 export default function CuttingDie({ cuttingDie }: Props) {
   return (
-    <div>
+    <Box>
       {cuttingDie.cells.map((row, y) => (
-        <div key={y} className={css({ display: "flex" })}>
+        <HStack key={y}>
           {row.map((cell, x) => (
             <CuttingDieCell key={x} cell={cell} />
           ))}
-        </div>
+        </HStack>
       ))}
-    </div>
+    </Box>
   );
 }
