@@ -34,29 +34,24 @@ const cuttingDies: CuttingDieType[] = [
 export default function App() {
   return (
     <>
-      <div
-        className={css({
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-        })}
-      >
-        <div className={css({ padding: "4" })} />
-        <div
-          className={css({
-            display: "flex",
-            justifyContent: "center",
-            gap: "8",
-          })}
-        >
-          {cuttingDies.map((cuttingDie, index) => (
-            <CuttingDie key={index} cuttingDie={cuttingDie} />
-          ))}
-        </div>
-        <div className={css({ padding: "4" })} />
-        <div className={css({ display: "flex", justifyContent: "center" })}>
-          <Board board={board} />
+      <div className={css({ display: "flex", justifyContent: "center" })}>
+        <div className={css({ flexGrow: "1" })}>
+          <div className={css({ padding: "4" })} />
+          <div
+            className={css({
+              display: "flex",
+              justifyContent: "center",
+              gap: "8",
+            })}
+          >
+            {cuttingDies.map((cuttingDie, index) => (
+              <CuttingDie key={index} cuttingDie={cuttingDie} />
+            ))}
+          </div>
+          <div className={css({ padding: "4" })} />
+          <div className={css({ display: "flex", justifyContent: "center" })}>
+            <Board board={board} />
+          </div>
         </div>
       </div>
     </>
