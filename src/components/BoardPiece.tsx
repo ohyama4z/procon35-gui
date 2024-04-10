@@ -11,16 +11,17 @@ export default function BoardPiece({ piece, isCut }: Props) {
     <div
       className={css({
         display: "flex",
-        width: "2rem",
-        height: "2rem",
-        borderWidth: isCut ? "2px" : "1px",
+        width: "8",
+        height: "8",
+        backgroundColor: isCut ? "red.200" : "neutral.50",
+        borderWidth: isCut ? "2" : "0.5",
         borderStyle: "solid",
         borderColor: isCut ? "red.700" : "neutral.800",
         alignItems: "center",
         justifyContent: "center",
       })}
     >
-      {piece.value}
+      {piece}
     </div>
   );
 }

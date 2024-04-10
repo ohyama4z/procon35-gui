@@ -1,8 +1,4 @@
-export type CellValue = 0 | 1;
-
-export type Cell = {
-  value: CellValue;
-};
+export type Cell = 0 | 1;
 
 // CuttingDie: 抜き型
 export type CuttingDie = {

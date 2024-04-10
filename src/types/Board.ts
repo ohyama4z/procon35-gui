@@ -1,8 +1,4 @@
-export type PieceValue = 0 | 1 | 2 | 3;
-
-export type Piece = {
-  value: PieceValue;
-};
+export type Piece = 0 | 1 | 2 | 3;
 
 export type Board = {
   width: number;
