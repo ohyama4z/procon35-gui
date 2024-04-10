@@ -34,7 +34,7 @@ const cuttingDies: CuttingDieType[] = [
 export default function App() {
   return (
     <>
-      <div className={css({ display: "flex", justifyContent: "center" })}>
+      <div className={css({ display: "flex" })}>
         <div className={css({ flexGrow: "1" })}>
           <div className={css({ padding: "4" })} />
           <div

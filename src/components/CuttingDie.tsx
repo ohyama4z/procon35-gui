@@ -10,12 +10,7 @@ export default function CuttingDie({ cuttingDie }: Props) {
   return (
     <div>
       {cuttingDie.cells.map((row, y) => (
-        <div
-          key={y}
-          className={css({
-            display: "flex",
-          })}
-        >
+        <div key={y} className={css({ display: "flex" })}>
           {row.map((cell, x) => (
             <CuttingDieCell key={x} cell={cell} />
           ))}
