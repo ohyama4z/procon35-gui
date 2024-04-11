@@ -12,7 +12,7 @@ export default function BoardPiece({ piece, isCut }: Props) {
       width="2rem"
       height="2rem"
       backgroundColor={isCut ? "#bfdbfe" : "#f5f5f4"}
-      borderWidth={isCut ? "2px" : "1px"}
+      borderWidth="1px"
       borderStyle="solid"
       borderColor={isCut ? "#2563eb" : "#292524"}
       alignItems="center"
