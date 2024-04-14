@@ -1,5 +1,6 @@
 import Board from "@/components/Board";
 import CuttingDie from "@/components/CuttingDie";
+import Spinner from "@/components/Spinner";
 import { useBoardMock } from "@/hooks/board";
 import type { CuttingDieId } from "@/types/CuttingDie";
 import { HStack, Spacer, VStack } from "@kuma-ui/core";
@@ -37,24 +38,42 @@ export default function App() {
       <VStack alignItems="center" gap="2rem">
         {/* <Board board={board} /> */}
         <HStack justifyContent="center" alignItems="center" gap="2rem">
-          {!cuttingDiesLoading &&
-            !cuttingDiesError &&
-            cuttingDies &&
-            cuttingDies.map((cuttingDie) => (
+          {(() => {
+            if (cuttingDiesLoading) {
+              return <Spinner />;
+            }
+
+            if (cuttingDiesError || !cuttingDies) {
+              return <div>抜き型の取得に失敗しました</div>;
+            }
+
+            return cuttingDies.map((cuttingDie) => (
               <CuttingDie
                 key={cuttingDie.id}
                 cuttingDie={cuttingDie}
                 isSelected={selectedCuttingDieId === cuttingDie.id}
                 selectCuttingDie={() => selectCuttingDie(cuttingDie.id)}
               />
-            ))}
+            ));
+          })()}
         </HStack>
-        {!boardLoading && !boardError && board && selectedCuttingDieId && (
-          <Board
-            board={board}
-            selectedCuttingDie={selectedCuttingDie(selectedCuttingDieId)}
-          />
-        )}
+
+        {(() => {
+          if (boardLoading || cuttingDiesLoading) {
+            return <Spinner />;
+          }
+
+          if (boardError || !board || !selectedCuttingDieId) {
+            return <div>ボードの取得に失敗しました</div>;
+          }
+
+          return (
+            <Board
+              board={board}
+              selectedCuttingDie={selectedCuttingDie(selectedCuttingDieId)}
+            />
+          );
+        })()}
       </VStack>
     </>
   );
